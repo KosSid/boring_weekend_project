@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import classes from './App.module.scss';
 
+console.log(classes)
+
 function App() {
   return (
     <div className={classes.App}>
