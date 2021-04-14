@@ -1,0 +1,23 @@
+{
+  "name": "0.-boring_weekend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "all": "concurrently \"(npm run server --prefix server/ )\" \"(npm run start --prefix client/)\"",
+    "type": "git",
+    "url": "git+https://github.com/KosSid/boring_weekend_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KosSid/boring_weekend_project/issues"
+  },
+  "homepage": "https://github.com/KosSid/boring_weekend_project#readme",
+  "dependencies": {
+    "concurrently": "^6.0.2"
+  }
+}
