@@ -4,7 +4,9 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 import ErrorBoundary from "./components/ErrorBoundary";
 
-import './index.scss';
+import './reset.css'
+import './index.scss'
+
 
 ReactDOM.render(
   <React.StrictMode>
