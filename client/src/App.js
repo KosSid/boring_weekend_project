@@ -13,7 +13,7 @@ const App = () => {
         <>
             <Header/>
             <MainRoutes/>
-            <Footer/>
+            {/*<Footer/>*/}
         </>
     );
 }
