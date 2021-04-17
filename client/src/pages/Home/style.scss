@@ -1,0 +1,40 @@
+.home {
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__card {
+    position: relative;
+  }
+
+  &__img__page {
+    object-fit: cover;
+    object-position: center;
+    border-radius: 19px;
+    overflow: hidden;
+    margin-top: 25px;
+  }
+
+  &__circle__container {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    position: absolute;
+    bottom: 16px;
+    left: 0;
+  }
+
+  &__circle {
+    height: 66px;
+    width: 66px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+}
+
