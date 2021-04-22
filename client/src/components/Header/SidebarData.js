@@ -15,7 +15,7 @@ export const SidebarData = [
         cName: 'nav-menu-text'
     },
     {
-        title: 'More Places',
+        title: 'Places',
         path: '/places',
         icon: <IoIcons.IoIosHeart />,
         cName: 'nav-menu-text'

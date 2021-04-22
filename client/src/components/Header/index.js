@@ -15,30 +15,23 @@ const Header = () => {
         <>
             <IconContext.Provider value={{ color: '#242424' }}>
                 <div className='navbar'>
-                    <div className='navbar-logo'><h1>Logo</h1></div>
-                    <Link to='#' className='menu-bars'>
-                        <FaIcons.FaBars onClick={showSidebar} />
-                    </Link>
-                </div>
-                <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-                    <ul className='nav-menu-items' onClick={showSidebar}>
-                        <li className='nav-menu-toggle'>
-                            <Link to='#' className='menu-bars'>
-                                <AiIcons.AiOutlineClose />
-                            </Link>
-                        </li>
+                    <h1 className='navbar-logo'>Logo</h1>
+                    <div className="menu-icon" onClick={showSidebar}>
+                        {sidebar ? <AiIcons.AiOutlineClose/> :<FaIcons.FaBars/>}
+                    </div>
+                    <ul className={sidebar ? 'nav-menu active' : 'nav-menu'}>
                         {SidebarData.map((item, index) => {
                             return (
                                 <li key={index} className={item.cName}>
                                     <Link to={item.path}>
-                                        {item.icon}
+                                        {sidebar && item.icon}
                                         <span>{item.title}</span>
                                     </Link>
                                 </li>
                             );
                         })}
                     </ul>
-                </nav>
+                </div>
             </IconContext.Provider>
         </>
     );
