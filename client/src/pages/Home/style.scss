@@ -35,13 +35,39 @@
     overflow: hidden;
   }
 
-  &__circle__container {
+  &__card_circle_container {
     display: flex;
-    width: 100%;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     bottom: 16px;
     left: 0;
+    color: white;
+    width: 100%;
+  }
+
+  &__card__message {
+    h2 {
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 4px;
+      font-weight: lighter;
+    }
+    h1 {
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+  }
+
+  &__circle__container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
   }
 
   &__circle {
@@ -52,6 +78,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
 
   &__message {
@@ -63,6 +90,10 @@
     &__img__page {
       width: 100%;
       border-radius: 19px 0 0 19px;
+    }
+
+    &__card__message {
+      display: none;
     }
 
     &__message {
@@ -84,6 +115,7 @@
 
         h2 {
           font-size: 25px;
+          font-weight: lighter;
         }
 
         p {
