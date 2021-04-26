@@ -27,8 +27,8 @@ export const SidebarData = [
         cName: 'nav-menu-text'
     },
     {
-        title: 'Settings',
-        path: '/settings',
+        title: 'Questions',
+        path: '/questions',
         icon: <AiIcons.AiTwotoneTool />,
         cName: 'nav-menu-text'
     }
