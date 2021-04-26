@@ -16,12 +16,11 @@
 }
 
 .nav-menu {
-  display: flex;
+  display: none;
   flex-direction: column;
   width: 240px;
   height: 500px;
   top: 80px;
-  right: -100%;
   opacity: 1;
   transition: all .5s ease;
   border-left: 1px solid #242424;
@@ -45,6 +44,7 @@
 }
 
 .active {
+  display: flex;
   background-color: #ffff;
   right: 0;
   opacity: 1;
@@ -90,6 +90,9 @@
       width: 95%;
       height: 100%;
       border-radius: 4px;
+      svg{
+        display: none;
+      }
     }
 
     &-text a:hover {
