@@ -25,6 +25,7 @@ const shippingMethods = require('./routes/shippingMethods');
 const paymentMethods = require('./routes/paymentMethods');
 const partners = require('./routes/partners');
 const mainRoute = require('./routes/index');
+const questions = require('./routes/questions')
 
 const app = express();
 
@@ -39,7 +40,11 @@ const db = require('./config/keys').mongoURI;
 
 // Connect to MongoDB
 mongoose
-  .connect(db, { useNewUrlParser: true, useFindAndModify: false })
+  .connect(db, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  })
   .then(() => console.log('MongoDB Connected'))
   .catch((err) => console.log(err));
 
@@ -68,6 +73,8 @@ app.use('/api/comments', comments);
 app.use('/api/shipping-methods', shippingMethods);
 app.use('/api/payment-methods', paymentMethods);
 app.use('/api/partners', partners);
+app.use('/api/questions', questions);
+
 app.use('/', mainRoute);
 
 // Server static assets if in production
