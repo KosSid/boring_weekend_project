@@ -1,11 +1,35 @@
-import React from 'react';
-import homeImg from '../../sources/images/Home_img/home_img.png';
+import React, {useEffect, useState} from 'react';
+import {useHistory} from "react-router";
 import {AiFillHeart, AiOutlineClose, AiOutlineQuestion} from "react-icons/ai";
 import withIconButton from "../../hoc/withIconButton";
+import homeImg from '../../sources/images/Home_img/home_img.png';
 
 import './style.scss';
+import QuestionService from "../../services/QuestionService";
 
 const Questions = () => {
+   const history = useHistory();
+    const [perPage, setPerPage] = useState(1);
+    const [page, setPage] = useState(1);
+    const [searchString, setSearchString] = useState(`?perPage=${perPage}&startPage=${page}`);
+
+    useEffect(() => {
+        history.push(`/questions${searchString}`);
+    },[history, searchString]);
+
+    useEffect(() => {
+        setSearchString(`?perPage=${perPage}&startPage=${page}`);
+    }, [page, perPage]);
+
+    useEffect(async () => {
+        try {
+            const question = await QuestionService.getQuestions(searchString);
+            console.log('FEEDBACK ===============> ', question.data);
+        } catch (err) {
+            console.log(err)
+        }
+    }, [searchString])
+
     const rejectIconHandle = () => {
         console.log('icon rejected');
     }
@@ -13,7 +37,7 @@ const Questions = () => {
         console.log('maybe icon');
     }
     const heartIconHandle = () => {
-        console.log('heart icon');
+        setPage(page + 1);
     }
 
     const RejectButton = withIconButton(AiOutlineClose, rejectIconHandle);

@@ -20,7 +20,11 @@ const questionSchema = new Schema(
                 type: String,
                 required: [true, 'the Question must have image link']
             }
-        ]
+        ],
+        createdAt: {
+            type: Date,
+            default: new Date(),
+        }
     });
 
 module.exports = mongoose.model("Question", questionSchema);
