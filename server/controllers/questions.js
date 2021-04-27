@@ -23,6 +23,7 @@ exports.getAllQuestions = async (req, res) => {
     const startPage = Number(req.query.startPage) || 1;
 
     try {
+        const totalNumberOfQuestions = await Question.find().estimatedDocumentCount();
         const questions = await Question.find()
             .skip(startPage * perPage - perPage)
             .limit(perPage)
@@ -37,6 +38,7 @@ exports.getAllQuestions = async (req, res) => {
         res.status(200).json({
             status: 'success',
             data: {
+                totalNumberOfQuestions,
                 questions
             }
         });

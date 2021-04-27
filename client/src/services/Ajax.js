@@ -1,9 +1,9 @@
 import axios from "axios";
 
 class Ajax {
-
   static async get(endpoint) {
-    return await axios.get(`${process.env.REACT_APP_API}${endpoint}`);
+    const {data} = await axios.get(`${process.env.REACT_APP_API}${endpoint}`);
+    return data;
   }
 
   // static async post(endpoint, object) {
