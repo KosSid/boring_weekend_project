@@ -1,4 +1,5 @@
 import React from 'react';
+import withAppContentWrapper from "../../hoc/withAppContentWrapper";
 
 import './style.scss'
 
@@ -8,4 +9,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default  withAppContentWrapper(Home);
