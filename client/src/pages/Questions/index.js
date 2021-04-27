@@ -33,13 +33,14 @@ const Questions = () => {
             const resp = await QuestionService.getQuestions(searchString);
             const {totalNumberOfQuestions, questions} = resp.data;
             if (totalNumberOfQuestions > page) {
-                const {category, imageUrls, textOfTheQuestion, _id,} = questions;
+                const {category, imageUrls, textOfTheQuestion, _id,} = questions[0];
+                console.log('================',questions[0])
                 setPreloader(false);
                 setTextQuestion(textOfTheQuestion);
+                console.log('TEEEXT ====>',textOfTheQuestion)
             } else {
                 history.push('/');
             }
-            console.log('FEEDBACK ===============> ', questions);
         } catch (err) {
             setPreloader(false);
             console.log(err)
@@ -67,7 +68,7 @@ const Questions = () => {
                 <div className={'home__card'}>
                     <img className={'home__img__page'} src={homeImg} alt='home_img'/>
                     <div className={'home__card_circle_container'}>
-                        {!textQuestion &&
+                        {textQuestion &&
                         <div className={'home__card__message'}>
                             <h2>Do you like?</h2>
                             <h1><strong>{textQuestion}</strong></h1>
@@ -83,12 +84,7 @@ const Questions = () => {
                 <div className={'home__message'}>
                     <div className={'home__message'}>
                         <h2>Do you like?</h2>
-                        <h1><strong>SIGHTSEEING</strong></h1>
-                        <div>
-                            <p>Arhitecture</p>
-                            <p>Culture</p>
-                            <p>Parks</p>
-                        </div>
+                        <h1><strong>{textQuestion}</strong></h1>
                     </div>
                 </div>
             </div> }
