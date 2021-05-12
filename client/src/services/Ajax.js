@@ -6,16 +6,16 @@ class Ajax {
     return data;
   }
 
-  // static async post(endpoint, object) {
-  //   const {data} = await axios.post(`${process.env.REACT_APP_API}${endpoint}`, object, {
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       // 'Authorization': `${localStorage.getItem('token')}`
-  //     }
-  //   })
-  //   // console.log('post new data-->', data);
-  //   return data;
-  // }
+  static async post(endpoint, object) {
+    const {data} = await axios.post(`${process.env.REACT_APP_API}${endpoint}`, object, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `${localStorage.getItem('token')}`
+      }
+    })
+    // console.log('post new data-->', data);
+    return data;
+  }
   //
   // static async put(endpoint, id, updatedObject) {
   //   const {data} = await axios.put(`${process.env.REACT_APP_API}${endpoint}/${id}`, updatedObject, {
